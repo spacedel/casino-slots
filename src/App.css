@@ -1,0 +1,258 @@
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 30px;
+}
+
+/* Slot Machine Styles */
+.slot-machine {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.balance-display {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.win-amount {
+  animation: win-celebration 0.5s ease-out;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+@keyframes win-celebration {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+@keyframes wild-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.reels-container {
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.reels {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.reel {
+  width: 80px;
+  height: 240px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.1s ease-out;
+}
+
+.symbol {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.symbol.wild {
+  color: #1abc9c;
+  text-shadow: 0 0 10px rgba(26, 188, 156, 0.7);
+  animation: wild-pulse 1.5s infinite;
+}
+
+
+.paylines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.payline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 69, 0, 0.3);
+}
+
+.payline.middle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.payline.top {
+  top: calc(33% - 40px);
+}
+
+.payline.bottom {
+  top: calc(66% - 40px);
+}
+
+.wager-selector {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wager-selector h3 {
+  margin: 0 0 10px 0;
+  color: #ffd700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.wager-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.quick-wagers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-wagers button {
+  padding: 8px 15px;
+  background: linear-gradient(135deg, #333, #222);
+  border: 1px solid #444;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 60px;
+}
+
+.quick-wagers button.active {
+  background: linear-gradient(135deg, #ffd700, #daa520);
+  color: black;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.quick-wagers button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #444, #333);
+  border-color: #666;
+}
+
+.quick-wagers button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spin-button {
+  width: 100%;
+  margin-top: 10px;
+  background: linear-gradient(to bottom, #ff8c00, #ff4500);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.spin-button:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.spin-button:hover:not(:disabled):before {
+  transform: translateX(100%);
+}
+
+.spin-button:disabled {
+  background: linear-gradient(to bottom, #666, #444);
+  box-shadow: none;
+}
+
+.result-message {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  animation: result-pop 0.3s ease-out;
+}
+
+@keyframes result-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
