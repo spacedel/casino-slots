@@ -1,6 +1,6 @@
 # Lucky Slots Casino Game
 
-![Lucky Slots Screenshot](../assets/images/screenshot.png)
+![Lucky Slots Screenshot](/assets/images/screenshot.png)
 
 ## Description
 
