@@ -1,7 +1,5 @@
 # Lucky Slots Casino Game
 
-![Lucky Slots Screenshot](/assets/images/screenshot.png)
-
 ## Description
 
 This is a typical slots-style casino game. Wager amount and spin to win.
